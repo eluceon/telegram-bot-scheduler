@@ -1,4 +1,4 @@
-package com.github.eluceon.tg.sender;
+package com.github.eluceon.telegram.sender;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
