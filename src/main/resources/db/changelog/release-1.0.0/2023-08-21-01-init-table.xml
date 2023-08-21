@@ -27,6 +27,9 @@
             <column name="SCHEDULED_TIME" type="TIME" remarks="Время отправки сообщения">
                 <constraints nullable="false"/>
             </column>
+            <column name="CREATED_AT" type="TIMESTAMPTZ" remarks="Дата и время создания записи">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
 
