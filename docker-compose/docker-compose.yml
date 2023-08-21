@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+    postgres:
+      container_name: postgres
+      image: postgres:15.4-alpine
+      env_file:
+        - postgres/.postgres.env
+      volumes:
+        - ./postgres/init-db.sh:/docker-entrypoint-initdb.d/init-db.sh:rw
+      command:
+        - postgres
+        - -cmax_locks_per_transaction=1024
+        - -cmax_connections=500
+      ports:
+        - "5433:5432"
+
+    telegram-sender:
+      container_name: telegram-sender
+      build:
+        context: ..
+        dockerfile: ./docker-compose/telegram-sender/Dockerfile
+      env_file:
+        - ./telegram-sender/.telegram-sender.env
+      ports:
+        - "8081:8080"
+      depends_on:
+        - postgres
