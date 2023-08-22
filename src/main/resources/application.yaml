@@ -28,3 +28,11 @@ spring:
           non_contextual_creation: true
 server:
   port: 8085
+
+telegram:
+  base-url: ${TELEGRAM_BASE_URL}
+  token: ${TELEGRAM_TOKEN}
+
+scheduler:
+  pool-size: 10
+  cron-expression: "0 * * * * *"

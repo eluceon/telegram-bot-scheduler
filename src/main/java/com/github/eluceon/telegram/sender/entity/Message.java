@@ -19,9 +19,9 @@ public class Message {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "CONTENT")
+    @Column(name = "TEXT")
     @NotNull
-    private String content;
+    private String text;
 
     @Column(name = "CHAT_ID")
     @NotNull

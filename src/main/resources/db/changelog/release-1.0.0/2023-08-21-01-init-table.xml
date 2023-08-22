@@ -18,7 +18,7 @@
             <column name="ID" type="BIGINT" autoIncrement="true" remarks="Идентификатор">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="CONTENT" type="TEXT" remarks="Сообщение">
+            <column name="TEXT" type="TEXT" remarks="Сообщение">
                 <constraints nullable="false"/>
             </column>
             <column name="CHAT_ID" type="VARCHAR(31)" remarks="Идентификатор чата">
