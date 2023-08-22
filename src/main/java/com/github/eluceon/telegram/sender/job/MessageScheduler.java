@@ -28,6 +28,6 @@ public class MessageScheduler {
         messages.stream()
                 .filter(message -> currentTime.getHour() == message.getScheduledTime().getHour() &&
                         currentTime.getMinute() == message.getScheduledTime().getMinute())
-                .forEach(message -> taskScheduler.execute(() -> client.sendMessage(mapper.toDto(message))));
+                .forEach(message -> taskScheduler.execute(() -> client.sendMessage(mapper.toMessageDto(message))));
     }
 }

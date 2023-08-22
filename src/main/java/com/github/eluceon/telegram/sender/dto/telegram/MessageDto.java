@@ -1,4 +1,4 @@
-package com.github.eluceon.telegram.sender.dto;
+package com.github.eluceon.telegram.sender.dto.telegram;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

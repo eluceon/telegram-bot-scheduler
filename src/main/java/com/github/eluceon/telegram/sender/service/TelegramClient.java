@@ -1,7 +1,7 @@
 package com.github.eluceon.telegram.sender.service;
 
-import com.github.eluceon.telegram.sender.dto.MessageDto;
-import com.github.eluceon.telegram.sender.dto.ResponseDto;
+import com.github.eluceon.telegram.sender.dto.telegram.MessageDto;
+import com.github.eluceon.telegram.sender.dto.telegram.ResponseDto;
 import com.github.eluceon.telegram.sender.exception.TelegramException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,9 @@ public class TelegramClient {
     private final WebClient telegramWebClient;
 
      public ResponseDto sendMessage(MessageDto request) {
-         log.info(request.toString());
+
+         log.info("Отправка запроса в telegram: {}", request.toString());
+
          var response = telegramWebClient.post()
                  .uri("/sendMessage")
                  .body(BodyInserters.fromValue(request))
@@ -27,9 +29,9 @@ public class TelegramClient {
                  .block();
 
          if (Objects.nonNull(response)) {
-             log.info("Получен ответ от telegram {}", response);
+             log.info("Получен ответ от telegram: {}", response);
              if (Boolean.FALSE.equals(response.getOk())) {
-                 throw new TelegramException("Ошибка при отправке сообщения через telegram");
+                 throw new TelegramException("Ошибка при отправке запроса в telegram");
              }
              return response;
          }
